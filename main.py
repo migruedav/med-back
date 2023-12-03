@@ -1,7 +1,5 @@
-from time import time
-from fastapi import FastAPI, __version__
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import HTMLResponse
+from fastapi import FastAPI
+
 
 app = FastAPI()
 
@@ -9,6 +7,10 @@ app = FastAPI()
 async def root():
     return {'message':'TQREC'}
 
+@app.get('/ada')
+async def hello():
+    return {'message':'Hello TQREC2'}
+
 @app.get('/ping')
 async def hello():
-    return {'res': 'pong', 'version': __version__, "time": time()}
+    return {'res': 'pong'}
