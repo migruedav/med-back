@@ -10,7 +10,3 @@ async def root():
 @app.get('/ada')
 async def hello():
     return {'message':'Hello TQREC2'}
-
-@app.get('/ping')
-async def hello():
-    return {'res': 'pong'}
