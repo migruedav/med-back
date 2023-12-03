@@ -1,2 +1,7 @@
+from dotenv import load_dotenv
+import os
+load_dotenv()
+
+
 def prueba ():
-    return {"prueba":"METCYRLQR"}
+    return {"prueba":os.getenv("PRUEBA")}
