@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 
 from api.prueba import prueba
@@ -6,6 +6,7 @@ from api.heroslider import heroslider
 from api.destacados import destacados
 from api.biblioteca import biblioteca
 from api.casosclinicos import casosclinicos
+from api.ads import ads
 
 
 
@@ -41,5 +42,9 @@ async def getBiblioteca():
 @app.get('/casos-clinicos')
 async def getCasosClinicos():
     return casosclinicos()
+
+@app.get('/ads')
+async def getAds(position: str = Query("top")):
+    return ads(position)
 
 
