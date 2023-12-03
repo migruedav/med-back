@@ -17,6 +17,6 @@ async def hello():
 async def getprueba():
     return prueba()
 
-@app.get('/supabase')
+@app.get('/hero-slider')
 async def getHeroSlider():
     return heroslider()
