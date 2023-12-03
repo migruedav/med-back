@@ -11,7 +11,7 @@ from api.casosclinicos import casosclinicos
 
 app = FastAPI()
 
-origins = ["https://med-cmc.com"]
+origins = ["https://www.med-cmc.com"]
 
 app.add_middleware(
     CORSMiddleware,
