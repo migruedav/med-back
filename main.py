@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from api.prueba import prueba
+from api.heroslider import heroslider
 
 
 app = FastAPI()
@@ -15,3 +16,7 @@ async def hello():
 @app.get('/prueba')
 async def getprueba():
     return prueba()
+
+@app.get('/supabase')
+async def getHeroSlider():
+    return heroslider()
