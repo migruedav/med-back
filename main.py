@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from api.prueba import prueba
 from api.heroslider import heroslider
+from api.destacados import destacados
 
 
 
@@ -26,3 +27,9 @@ async def root():
 @app.get('/hero-slider')
 async def getHeroSlider():
     return heroslider()
+
+@app.get('/destacados')
+async def getDestacados():
+    return destacados()
+
+
