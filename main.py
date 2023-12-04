@@ -16,7 +16,7 @@ from api.borrarvideocurso import borrarvideocurso
 
 app = FastAPI()
 
-origins = ["https://www.med-cmc.com","http://localhost:4321","http://localhost:4321/admin"]
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
