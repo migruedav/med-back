@@ -9,6 +9,7 @@ from api.casosclinicos import casosclinicos
 from api.ads import ads
 from api.videocursos import videocursos
 from api.videocursosslider import videocursosslider
+from api.categoria import categoria
 
 
 
@@ -57,4 +58,7 @@ async def getVideoCursos():
 async def getVideoCursos():
     return videocursosslider()
 
+@app.get('/categoria')
+async def getCategoria(cat: str = Query):
+    return categoria(cat)
 
