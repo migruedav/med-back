@@ -10,6 +10,7 @@ from api.videocursos import videocursos
 from api.videocursosslider import videocursosslider
 from api.categoria import categoria
 from api.agregarvideocurso import agregarvideocurso
+from api.borrarvideocurso import borrarvideocurso
 
 
 
@@ -65,4 +66,8 @@ async def getCategoria(cat: str = Query("")):
 @app.post('/agregar-video-curso')
 async def agregarVideoCurso(titulo: str = Query(""), video: str = Query(""), imagen: str = Query(""), slider: bool = Query(False)):
     return agregarvideocurso(titulo, video, imagen, slider)
+
+@app.delete('/borrar-video-curso')
+async def borrarVideoCurso(id: int = Query(0)):
+    return borrarvideocurso(id)
 
