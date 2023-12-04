@@ -7,6 +7,8 @@ from api.destacados import destacados
 from api.biblioteca import biblioteca
 from api.casosclinicos import casosclinicos
 from api.ads import ads
+from api.videocursos import videocursos
+from api.videocursosslider import videocursosslider
 
 
 
@@ -46,5 +48,13 @@ async def getCasosClinicos():
 @app.get('/ads')
 async def getAds(position: str = Query("top")):
     return ads(position)
+
+@app.get('/video-cursos')
+async def getVideoCursos():
+    return videocursos()
+
+@app.get('/video-cursos-slider')
+async def getVideoCursos():
+    return videocursosslider()
 
 
