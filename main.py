@@ -9,6 +9,7 @@ from api.ads import ads
 from api.videocursos import videocursos
 from api.videocursosslider import videocursosslider
 from api.categoria import categoria
+from api.agregarvideocursos import agregarvideocurso
 
 
 
@@ -60,4 +61,8 @@ async def getVideoCursos():
 @app.get('/categoria')
 async def getCategoria(cat: str = Query("")):
     return categoria(cat)
+
+@app.post('/agregar-video-curso')
+async def agregarVideoCurso(titulo: str = Query(""), video: str = Query(""), imagen: str = Query(""), slider: bool = Query(False)):
+    return agregarvideocurso(titulo, video, imagen, slider)
 
