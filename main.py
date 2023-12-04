@@ -9,13 +9,13 @@ from api.ads import ads
 from api.videocursos import videocursos
 from api.videocursosslider import videocursosslider
 from api.categoria import categoria
-from api.agregarvideocursos import agregarvideocurso
+from api.agregarvideocurso import agregarvideocurso
 
 
 
 app = FastAPI()
 
-origins = ["https://www.med-cmc.com","http://localhost:4321"]
+origins = ["https://www.med-cmc.com","http://localhost:4321","http://localhost:4321/admin"]
 
 app.add_middleware(
     CORSMiddleware,
