@@ -1,7 +1,6 @@
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 
-from api.prueba import prueba
 from api.heroslider import heroslider
 from api.destacados import destacados
 from api.biblioteca import biblioteca
@@ -59,6 +58,6 @@ async def getVideoCursos():
     return videocursosslider()
 
 @app.get('/categoria')
-async def getCategoria(cat: str = Query):
+async def getCategoria(cat: str = Query("")):
     return categoria(cat)
 
