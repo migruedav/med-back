@@ -29,7 +29,7 @@ app.add_middleware(
 
 @app.get("/")
 async def root():
-    return {'message':'TQREC'}
+    return "Este es el api de med-cmc"
 
 @app.get('/hero-slider')
 async def getHeroSlider():
