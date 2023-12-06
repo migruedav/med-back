@@ -11,6 +11,7 @@ from api.videocursosslider import videocursosslider
 from api.categoria import categoria
 from api.agregarvideocurso import agregarvideocurso
 from api.borrarvideocurso import borrarvideocurso
+from api.admins import admins
 
 
 
@@ -70,4 +71,8 @@ async def agregarVideoCurso(titulo: str = Query(""), video: str = Query(""), ima
 @app.delete('/borrar-video-curso')
 async def borrarVideoCurso(id: int = Query(0)):
     return borrarvideocurso(id)
+
+@app.get('/admins')
+async def getAdmins():
+    return admins()
 
