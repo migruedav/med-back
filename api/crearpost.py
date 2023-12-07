@@ -6,3 +6,4 @@ def crearpost(post):
         return data.data
     except Exception as e:
         return e.message
+    
