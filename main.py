@@ -1,5 +1,9 @@
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+from typing import List
+
+
 
 from api.heroslider import heroslider
 from api.destacados import destacados
@@ -13,8 +17,21 @@ from api.especialidad import especialidad
 from api.agregarvideocurso import agregarvideocurso
 from api.borrarvideocurso import borrarvideocurso
 from api.admins import admins
+from api.crearpost import crearpost
 
-
+class Post(BaseModel):
+    titulo: str
+    autor: str
+    categoria: str
+    especialidad_principal: str
+    otras_especialidades: List[str]
+    es_destacado: bool
+    contenido: str
+    imagen: str
+    hero_slider: bool
+    visible: bool
+    slug: str
+    
 
 app = FastAPI()
 
@@ -81,3 +98,6 @@ async def getAdmins():
 async def getEspecialidad(esp: str = Query("")):
     return especialidad(esp)
 
+@app.post('/crear-post')
+async def crearPost(post: Post):
+    return crearpost(post)
