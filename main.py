@@ -31,7 +31,6 @@ class Post(BaseModel):
     imagen: str
     hero_slider: bool
     visible: bool
-    slug: str
 
 
 app = FastAPI()
