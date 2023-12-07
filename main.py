@@ -9,6 +9,7 @@ from api.ads import ads
 from api.videocursos import videocursos
 from api.videocursosslider import videocursosslider
 from api.categoria import categoria
+from api.especialidad import especialidad
 from api.agregarvideocurso import agregarvideocurso
 from api.borrarvideocurso import borrarvideocurso
 from api.admins import admins
@@ -75,4 +76,8 @@ async def borrarVideoCurso(id: int = Query(0)):
 @app.get('/admins')
 async def getAdmins():
     return admins()
+
+@app.get('/especialidad')
+async def getEspecialidad(esp: str = Query("")):
+    return especialidad(esp)
 
