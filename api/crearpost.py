@@ -1,5 +1,8 @@
 from supabaseCl import supabaseClient
 
 def crearpost(post):
-    data = supabaseClient.table('posts').insert(post)
-    return data.data
+    try:
+        data = supabaseClient.table('posts').insert(post).execute()
+        return data.data
+    except Exception as e:
+        return e.message
