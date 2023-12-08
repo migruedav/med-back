@@ -18,6 +18,8 @@ from api.agregarvideocurso import agregarvideocurso
 from api.borrarvideocurso import borrarvideocurso
 from api.admins import admins
 from api.crearpost import crearpost
+from api.all_posts import all_posts
+from api.deploy import deploy
 
 
 class Post(BaseModel):
@@ -114,3 +116,11 @@ async def getEspecialidad(esp: str = Query("")):
 @app.post('/crear-post')
 async def crearPost(post: Post):
     return crearpost({"titulo": post.titulo, "autor": post.autor, "categoria": post.categoria, "especialidad_principal": post.especialidad_principal, "otras_especialidades": post.otras_especialidades, "es_destacado": post.es_destacado, "contenido": post.contenido, "imagen": post.imagen, "hero_slider": post.hero_slider, "visible": post.visible, "slug": slugify(post.titulo)})
+
+@app.get('/all-posts')
+async def getAllPosts(limit: int = Query(100)):
+    return all_posts(limit)
+
+@app.get('/deploy')
+async def getDeploy():
+    return deploy()
