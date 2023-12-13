@@ -39,7 +39,6 @@ class Registro(BaseModel):
     nombre: str
     apellido: str
     email: str
-    password: str
     cedula: str
     especialidad: str
     pais: str
@@ -135,4 +134,4 @@ async def getDeploy():
 
 @app.post('/registro')
 async def sendRegistro(reg: Registro):
-    return registro({"nombre": reg.nombre, "apellido": reg.apellido, "email": reg.email, "password": reg.password, "cedula": reg.cedula, "especialidad": reg.especialidad, "pais": reg.pais, "estado": reg.estado})
+    return registro({"nombre": reg.nombre, "apellido": reg.apellido, "email": reg.email, "cedula": reg.cedula, "especialidad": reg.especialidad, "pais": reg.pais, "estado": reg.estado})
