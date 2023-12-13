@@ -39,6 +39,7 @@ class Registro(BaseModel):
     nombre: str
     apellido: str
     email: str
+    password: str
     cedula: str
     especialidad: str
     pais: str
