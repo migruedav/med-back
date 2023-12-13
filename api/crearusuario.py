@@ -1,6 +1,6 @@
 from supabaseCl import supabaseClient
 
-def registro(usuario):
+def crearusuario(usuario):
     supabaseClient.auth.sign_up({
         "email": usuario['email'],
         "password": usuario['password'],
