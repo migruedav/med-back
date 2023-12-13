@@ -134,5 +134,5 @@ async def getDeploy():
     return deploy()
 
 @app.post('/registro')
-async def registro(reg: Registro):
+async def sendRegistro(reg: Registro):
     return registro({"nombre": reg.nombre, "apellido": reg.apellido, "email": reg.email, "password": reg.password, "cedula": reg.cedula, "especialidad": reg.especialidad, "pais": reg.pais, "estado": reg.estado})
