@@ -20,6 +20,7 @@ from api.admins import admins
 from api.crearpost import crearpost
 from api.deploy import deploy
 from api.registro import registro
+from api.crearusuario import crearusuario
 
 
 class Post(BaseModel):
@@ -139,3 +140,8 @@ async def getDeploy():
 @app.post('/registro')
 async def sendRegistro(reg: Registro):
     return registro({"nombre": reg.nombre, "apellido": reg.apellido, "email": reg.email, "cedula": reg.cedula, "especialidad": reg.especialidad, "pais": reg.pais, "estado": reg.estado})
+
+
+@app.post('/crear-usuario')
+async def setCrearUsuario(usr: CrearUsuario):
+    return crearusuario({"email": usr.email, "password": usr.password})
