@@ -19,6 +19,7 @@ from api.borrarvideocurso import borrarvideocurso
 from api.admins import admins
 from api.crearpost import crearpost
 from api.deploy import deploy
+from api.registro import registro
 
 
 class Post(BaseModel):
@@ -32,6 +33,18 @@ class Post(BaseModel):
     imagen: str
     hero_slider: bool
     visible: bool
+
+
+class Registro(BaseModel):
+    nombre: str
+    apellido: str
+    email: str
+    password: str
+    cedula: str
+    especialidad: str
+    admin: bool
+    pais: str
+    estado: str
 
 
 app = FastAPI()
@@ -116,6 +129,11 @@ async def getEspecialidad(esp: str = Query("")):
 async def crearPost(post: Post):
     return crearpost({"titulo": post.titulo, "autor": post.autor, "categoria": post.categoria, "especialidad_principal": post.especialidad_principal, "otras_especialidades": post.otras_especialidades, "es_destacado": post.es_destacado, "contenido": post.contenido, "imagen": post.imagen, "hero_slider": post.hero_slider, "visible": post.visible, "slug": slugify(post.titulo)})
 
+
 @app.get('/deploy')
 async def getDeploy():
     return deploy()
+
+@app.post('/registro')
+async def registro(reg: Registro):
+    return registro({"nombre": reg.nombre, "apellido": reg.apellido, "email": reg.email, "password": reg.password, "cedula": reg.cedula, "especialidad": reg.especialidad, "admin": reg.admin, "pais": reg.pais, "estado": reg.estado})
