@@ -48,13 +48,11 @@ class Registro(BaseModel):
 
 app = FastAPI()
 
-origins = ["*"]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
@@ -132,6 +130,7 @@ async def crearPost(post: Post):
 @app.get('/deploy')
 async def getDeploy():
     return deploy()
+
 
 @app.post('/registro')
 async def sendRegistro(reg: Registro):
