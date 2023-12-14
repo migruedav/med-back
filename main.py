@@ -21,6 +21,7 @@ from api.crearpost import crearpost
 from api.deploy import deploy
 from api.registro import registro
 from api.crearusuario import crearusuario
+from api.medicosexamenes import medicosexamenes
 
 
 class Post(BaseModel):
@@ -145,3 +146,8 @@ async def sendRegistro(reg: Registro):
 @app.post('/crear-usuario')
 async def setCrearUsuario(usr: CrearUsuario):
     return crearusuario({"email": usr.email, "password": usr.password})
+
+
+@app.get('/medicos-examenes')
+async def getMedicosExamenes():
+    return medicosexamenes()
