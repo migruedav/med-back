@@ -4,7 +4,7 @@ q = query.Query()
 
 def all_posts():
     all_posts = []
-    for i in range(5):
+    for i in range(3):
         queries = [q.offset(100*i), q.limit(100), q.equal('visible',True),q.order_desc('fecha')]
         data = db.list_documents('med-cmc','posts',queries=queries)
         docs = data['documents']
