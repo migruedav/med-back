@@ -22,6 +22,7 @@ from api.deploy import deploy
 from api.registro import registro
 from api.crearusuario import crearusuario
 from api.medicosexamenes import medicosexamenes
+from api.all_posts import all_posts
 
 
 class Post(BaseModel):
@@ -151,3 +152,7 @@ async def setCrearUsuario(usr: CrearUsuario):
 @app.get('/medicos-examenes')
 async def getMedicosExamenes():
     return medicosexamenes()
+
+@app.get('/all-posts')
+async def getAllPosts():
+    return all_posts()
