@@ -1,11 +1,10 @@
-from supabaseCl import supabaseClient
+from appwriteClient import db
+from appwrite import query
+q = query.Query()
 
 def especialidad(esp):
-
-    try:
-        data = supabaseClient.table('posts').select("*").eq('especialidad_principal',esp).filter("visible","eq",True).order("fecha", desc=True).limit(100).execute()
-        data = data.data
-        data = [x for x in data if esp==x['especialidad_principal'] or esp in x['otras_especialidades']]
-        return data
-    except:
-        return {'message':'error'}
+    queries = [q.equal('especialidad_principal',esp),q.equal("visible",True),q.order_desc('$createdAt')]
+    data = db.list_documents('med-cmc','posts',queries=queries)
+    docs = data['documents']
+    docs = [x for x in docs if esp==x['especialidad_principal'] or esp in x['otras_especialidades']]
+    return docs
