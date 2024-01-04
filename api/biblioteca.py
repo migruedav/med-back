@@ -1,5 +1,9 @@
-from supabaseCl import supabaseClient
+from appwriteClient import db
+from appwrite import query
+q = query.Query()
 
 def biblioteca():
-    data = supabaseClient.table('posts').select("*").filter("visible","eq",True).filter("categoria", "eq", "Biblioteca Clínica").order("id", desc=True).execute()
-    return data.data
+    queries = [q.select(['titulo',"imagen", "titulo", "fecha", "autor", "slug"]),q.equal('visible',True),q.equal('categoria','Biblioteca Clínica'),q.order_desc('fecha')]
+    data = db.list_documents('med-cmc','posts',queries=queries)
+    docs = data['documents']    
+    return docs
