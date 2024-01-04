@@ -1,5 +1,9 @@
-from supabaseCl import supabaseClient
+from appwriteClient import db
+from appwrite import query
+q = query.Query()
 
 def heroslider():
-    data = supabaseClient.table('posts').select("titulo,autor,imagen, slug").filter("visible","eq",True).filter("hero_slider", "eq", True).order("id", desc=True).execute()
-    return data.data
+    queries = [q.select(['titulo',"imagen", "autor", "slug"]),q.equal('hero_slider',True),q.order_desc('fecha')]
+    data = db.list_documents('med-cmc','posts',queries=queries)
+    docs = data['documents']    
+    return docs
