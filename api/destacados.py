@@ -1,5 +1,9 @@
-from supabaseCl import supabaseClient
+from appwriteClient import db
+from appwrite import query
+q = query.Query()
 
 def destacados():
-    data = supabaseClient.table('posts').select("*").filter("visible","eq",True).filter("es_destacado", "eq", True).order("id", desc=True).execute()
-    return data.data
+    queries = [q.equal('visible',True),q.equal('es_destacado',True),q.order_desc('fecha')]
+    data = db.list_documents('med-cmc','posts',queries=queries)
+    docs = data['documents']    
+    return docs
