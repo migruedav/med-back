@@ -11,7 +11,7 @@ key = os.getenv("APPWRITE_KEY")
 (client
   .set_endpoint('https://cloud.appwrite.io/v1')
   .set_project('med-cmc')
-  .set_key('') # Your secret API key
+  .set_key(key) # Your secret API key
 )
 
 storage = Storage(client)
