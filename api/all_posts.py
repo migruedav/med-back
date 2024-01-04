@@ -8,5 +8,5 @@ def all_posts(offset):
     data = db.list_documents('med-cmc','posts',queries=queries)
     docs = data['documents']
 
-    return {"len": len(docs), "posts": docs}
+    return docs
         
