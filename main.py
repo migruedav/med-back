@@ -154,5 +154,5 @@ async def getMedicosExamenes():
     return medicosexamenes()
 
 @app.get('/all-posts')
-async def getAllPosts():
-    return all_posts()
+async def getAllPosts(offset: int = Query(0)):
+    return all_posts(offset)
