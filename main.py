@@ -164,5 +164,5 @@ async def getEspecialidadRelated(esp: str = Query("")):
     return especialidad_related(esp)
 
 @app.get('/examenes')
-async def getExamenes():
-    return examenes()
+async def getExamenes(offset: int = Query(0)):
+    return examenes(offset)
