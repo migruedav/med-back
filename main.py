@@ -24,6 +24,7 @@ from api.crearusuario import crearusuario
 from api.medicosexamenes import medicosexamenes
 from api.all_posts import all_posts
 from api.especialidad_related import especialidad_related
+from api.examenes import examenes
 
 
 class Post(BaseModel):
@@ -161,3 +162,7 @@ async def getAllPosts(offset: int = Query(0)):
 @app.get('/especialidad-related')
 async def getEspecialidadRelated(esp: str = Query("")):
     return especialidad_related(esp)
+
+@app.get('/examenes')
+async def getExamenes():
+    return examenes()
