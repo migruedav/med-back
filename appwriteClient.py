@@ -13,7 +13,6 @@ key = os.getenv("APPWRITE_KEY")
   .set_project('med-cmc')
   .set_key(key) # Your secret API key
   .set_self_signed() # Use only on dev mode with a self-signed SSL cert
-
 )
 
 storage = Storage(client)
