@@ -25,6 +25,7 @@ from api.medicosexamenes import medicosexamenes
 from api.all_posts import all_posts
 from api.especialidad_related import especialidad_related
 from api.examenes import examenes
+from api.examenes_aprovados import examenes_aprovados
 
 
 class Post(BaseModel):
@@ -166,3 +167,7 @@ async def getEspecialidadRelated(esp: str = Query("")):
 @app.get('/examenes')
 async def getExamenes(offset: int = Query(0)):
     return examenes(offset)
+
+@app.get('/examenes-aprovados')
+async def getExamenesAprovados(email: str = Query("")):
+    return examenes_aprovados(email)
