@@ -169,5 +169,5 @@ async def getExamenes(offset: int = Query(0)):
     return examenes(offset)
 
 @app.get('/examenes-aprovados')
-async def getExamenesAprovados(email: str = Query(""), all_exams: list = Query([])):
-    return examenes_aprovados(email, all_exams)
+async def getExamenesAprovados(email: str = Query("")):
+    return examenes_aprovados(email)
