@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, Query,File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
@@ -157,5 +157,5 @@ async def getExamenes(offset: int = Query(0)):
     return examenes(offset)
 
 @app.post('/subir-imagen')
-async def setSubirImagen(imagen: str = Query(""), bucket: str = Query("")):
-    return subir_imagen(imagen,bucket)
+async def subirImagen(file: UploadFile = File(...)):
+    return subir_imagen(file)
