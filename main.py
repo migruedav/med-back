@@ -135,8 +135,8 @@ async def getEspecialidad(esp: str = Query("")):
 
 
 @app.post('/crear-post')
-async def crearPost(post: Post):
-    return crearpost({"titulo": post.titulo, "autor": post.autor, "categoria": post.categoria, "especialidad_principal": post.especialidad_principal, "otras_especialidades": post.otras_especialidades, "es_destacado": post.es_destacado, "contenido": post.contenido, "imagen": post.imagen, "hero_slider": post.hero_slider, "visible": post.visible, "slug": slugify(post.titulo), "fecha": post.fecha})
+async def crearPost(post: dict):
+    return crearpost(post)
 
 
 @app.get('/deploy')
@@ -169,7 +169,3 @@ async def getEspecialidadRelated(esp: str = Query("")):
 @app.get('/examenes')
 async def getExamenes(offset: int = Query(0)):
     return examenes(offset)
-
-@app.get('/examenes-aprovados')
-async def getExamenesAprovados(email: str = Query("")):
-    return examenes_aprovados(email)
