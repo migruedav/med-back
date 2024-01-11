@@ -2,6 +2,7 @@ from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
+from datetime import datetime
 
 from slugify import slugify
 
@@ -38,7 +39,7 @@ class Post(BaseModel):
     imagen: str
     hero_slider: bool
     visible: bool
-    fecha: str
+    fecha: datetime
 
 
 class Registro(BaseModel):
