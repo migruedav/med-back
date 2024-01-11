@@ -26,21 +26,7 @@ from api.medicosexamenes import medicosexamenes
 from api.all_posts import all_posts
 from api.especialidad_related import especialidad_related
 from api.examenes import examenes
-
-
-class Post(BaseModel):
-    titulo: str
-    autor: str
-    categoria: str
-    especialidad_principal: str
-    otras_especialidades: List[str]
-    es_destacado: bool
-    contenido: str
-    imagen: str
-    hero_slider: bool
-    visible: bool
-    fecha: datetime
-    slug: str
+from api.subir_imagen import subir_imagen
 
 
 class Registro(BaseModel):
@@ -169,3 +155,7 @@ async def getEspecialidadRelated(esp: str = Query("")):
 @app.get('/examenes')
 async def getExamenes(offset: int = Query(0)):
     return examenes(offset)
+
+@app.post('/subir-imagen')
+async def setSubirImagen(imagen: str = Query(""), bucket: str = Query("")):
+    return subir_imagen(imagen,bucket)
