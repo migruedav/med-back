@@ -1,11 +1,12 @@
-async def subir_imagen(file):
+from appwriteClient import storage
+from appwrite.input_file import InputFile
+import uuid
 
+async def subir_imagen(file):
+    id = str(uuid.uuid4())
     try:
         image_content = await file.read()
-
-        with open(f"./{file.filename}", "wb") as f:
-            f.write(image_content)
-
-        return {"message": "Imagen subida y guardada exitosamente en el servidor"}
+        storage.create_file('ads',id,InputFile.from_path(image_content))
+        return {"message":f"La imagen fue subida exitosamente","id":id}
     except Exception as e:
-        return {"error": f"Error: {str(e)}"}
+        return e.message
