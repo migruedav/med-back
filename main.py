@@ -36,6 +36,7 @@ from api.all_ads import all_ads
 from api.agregar_examen import agregar_examen
 from api.agregar_pyr import agregar_pyr
 from api.borrar_examen import borrar_examen
+from api.editar_examen import editar_examen
 
 
 class Registro(BaseModel):
@@ -204,3 +205,7 @@ async def agregarPyr(post: dict):
 @app.delete('/borrar-examen')
 async def borrarExamen(id: str):
     return borrar_examen(id)
+
+@app.post('/editar-examen')
+async def editarExamen(examen: dict):
+    return editar_examen(examen)
