@@ -32,6 +32,7 @@ from api.editar_post import editar_post
 from api.borrar_post import borrar_post
 from api.borrar_ad import borrar_ad
 from api.agregar_ad import agregar_ad
+from api.all_ads import all_ads
 
 
 class Registro(BaseModel):
@@ -184,3 +185,7 @@ async def borrarAd(id: str):
 @app.post('/agregar-ad')
 async def agregarAd(ad: dict):
     return agregar_ad(ad)
+
+@app.get('/all-ads')
+async def getAllAds(offset: int = Query(0)):
+    return all_ads(offset)
