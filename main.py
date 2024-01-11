@@ -30,6 +30,8 @@ from api.subir_imagen import subir_imagen
 from api.subir_archivo import subir_archivo
 from api.editar_post import editar_post
 from api.borrar_post import borrar_post
+from api.borrar_ad import borrar_ad
+from api.agregar_ad import agregar_ad
 
 
 class Registro(BaseModel):
@@ -174,3 +176,11 @@ async def editarPost(post: dict,id: str = Query("")):
 @app.delete('/borrar-post')
 async def borrarPost(id: str):
     return borrar_post(id)
+
+@app.delete('/borrar-ad')
+async def borrarAd(id: str):
+    return borrar_ad(id)
+
+@app.post('/agregar-ad')
+async def agregarAd(ad: dict):
+    return agregar_ad(ad)
