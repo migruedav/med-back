@@ -169,7 +169,7 @@ async def subirArchivo(file: UploadFile = File(...),bucket:str = Query("posts"))
 
 @app.post('/editar-post')
 async def editarPost(post: dict,id: str = Query("")):
-    return editar_post(post)
+    return editar_post(post,id)
 
 @app.delete('/borrar-post')
 async def borrarPost(id: str):
