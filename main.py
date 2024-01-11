@@ -187,5 +187,5 @@ async def agregarAd(ad: dict):
     return agregar_ad(ad)
 
 @app.get('/all-ads')
-async def getAllAds(offset: int = Query(0)):
-    return all_ads(offset)
+async def getAllAds():
+    return all_ads()
