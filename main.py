@@ -172,5 +172,5 @@ async def editarPost(post: dict):
     return editar_post(post)
 
 @app.delete('/borrar-post')
-async def borrarPost(id: int = Query(0)):
+async def borrarPost(id: str):
     return borrar_post(id)
