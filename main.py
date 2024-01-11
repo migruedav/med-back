@@ -40,6 +40,7 @@ class Post(BaseModel):
     hero_slider: bool
     visible: bool
     fecha: datetime
+    slug: str
 
 
 class Registro(BaseModel):
@@ -135,7 +136,7 @@ async def getEspecialidad(esp: str = Query("")):
 
 @app.post('/crear-post')
 async def crearPost(post: Post):
-    return crearpost({"titulo": post.titulo, "autor": post.autor, "categoria": post.categoria, "especialidad_principal": post.especialidad_principal, "otras_especialidades": post.otras_especialidades, "es_destacado": post.es_destacado, "contenido": post.contenido, "imagen": post.imagen, "hero_slider": post.hero_slider, "visible": post.visible, "slug": slugify(post.titulo), "fecha": post.fecha})
+    return crearpost({"titulo": post.titulo, "autor": post.autor, "categoria": post.categoria, "especialidad_principal": post.especialidad_principal, "otras_especialidades": post.otras_especialidades, "es_destacado": post.es_destacado, "contenido": post.contenido, "imagen": post.imagen, "hero_slider": post.hero_slider, "visible": post.visible, "slug": slugify(post.titulo), "fecha": post.fecha,"slug":post.slug})
 
 
 @app.get('/deploy')
