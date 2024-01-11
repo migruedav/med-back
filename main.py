@@ -29,6 +29,7 @@ from api.examenes import examenes
 from api.subir_imagen import subir_imagen
 from api.subir_archivo import subir_archivo
 from api.editar_post import editar_post
+from api.borrar_post import borrar_post
 
 
 class Registro(BaseModel):
@@ -169,3 +170,7 @@ async def subirArchivo(file: UploadFile = File(...),bucket:str = Query("posts"))
 @app.post('/editar-post')
 async def editarPost(post: dict):
     return editar_post(post)
+
+@app.delete('/borrar-post')
+async def borrarPost(id: int = Query(0)):
+    return borrar_post(id)
