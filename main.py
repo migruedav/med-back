@@ -197,5 +197,5 @@ async def agregarExamen(examen: dict):
     return agregar_examen(examen)
 
 @app.post('/agregar-pyr')
-async def agregarPyr(id: str,pyr: dict):
+async def agregarPyr(id: str,pyr: str):
     return agregar_pyr(id,pyr)
