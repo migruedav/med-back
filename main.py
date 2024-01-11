@@ -1,7 +1,7 @@
-from fastapi import FastAPI, Query,File, UploadFile
+from fastapi import FastAPI, Query,File, UploadFile, Body
+from typing import Dict, Any,List
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import List
 from datetime import datetime
 
 from slugify import slugify
@@ -197,5 +197,5 @@ async def agregarExamen(examen: dict):
     return agregar_examen(examen)
 
 @app.post('/agregar-pyr')
-async def agregarPyr(id: str,pyr: str):
-    return agregar_pyr(id,pyr)
+async def agregarPyr(id: str = Body(...), pyr: Dict[str, Any] = Body(...)):
+    return agregar_pyr(id, pyr)
