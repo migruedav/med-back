@@ -1,11 +1,9 @@
 from appwriteClient import db
 import json
 
-def agregar_pyr(id, pyr):
+def agregar_pyr(post):
     try:
-        pyr = json.loads(pyr)
-        doc = {"preguntas_y_respuestas": pyr}
-        data = db.update_document('med-cmc', "examenes", id, doc)
+        data = db.update_document('med-cmc', "examenes", post['id'], post['pyr'])
         return "Preguntas y respuestas agregadas exitosamente"
     except Exception as e:
         return str(e)
