@@ -34,6 +34,7 @@ from api.borrar_ad import borrar_ad
 from api.agregar_ad import agregar_ad
 from api.all_ads import all_ads
 from api.agregar_examen import agregar_examen
+from api.agregar_pyr import agregar_pyr
 
 
 class Registro(BaseModel):
@@ -194,3 +195,7 @@ async def getAllAds():
 @app.post('/agregar-examen')
 async def agregarExamen(examen: dict):
     return agregar_examen(examen)
+
+@app.post('/agregar-pyr')
+async def agregarPyr(id: str,pyr: dict):
+    return agregar_pyr(id,pyr)
