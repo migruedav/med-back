@@ -158,4 +158,4 @@ async def getExamenes(offset: int = Query(0)):
 
 @app.post('/subir-imagen')
 async def subirImagen(file: UploadFile = File(...)):
-    return subir_imagen(file)
+    return await subir_imagen(file)
