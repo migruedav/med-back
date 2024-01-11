@@ -6,6 +6,6 @@ def agregar_pyr(id, pyr):
         pyr = json.loads(pyr)
         doc = {"preguntas_y_respuestas": pyr}
         data = db.update_document('med-cmc', "examenes", id, doc)
-        return {"message": f"El Post con titulo {pyr['titulo']} fue editado exitosamente", "id": data["$id"]}
+        return "Preguntas y respuestas agregadas exitosamente"
     except Exception as e:
         return str(e)
