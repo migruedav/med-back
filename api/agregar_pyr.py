@@ -1,4 +1,5 @@
 from appwriteClient import db
+import json
 
 def agregar_pyr(id,pyr):
     try:
