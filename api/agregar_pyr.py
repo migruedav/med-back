@@ -3,7 +3,8 @@ import json
 
 def agregar_pyr(post):
     try:
-        data = db.update_document('med-cmc', "examenes", post['id'], post['pyr'])
+        pyr = json.loads(post['pyr'])
+        data = db.update_document('med-cmc', "examenes", post['id'], {"preguntas_y_respuestas": pyr})
         return "Preguntas y respuestas agregadas exitosamente"
     except Exception as e:
         return str(e)
