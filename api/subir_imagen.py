@@ -7,6 +7,6 @@ async def subir_imagen(file):
     try:
         image_content = await file.read()
         data = storage.create_file('ads',id,InputFile.from_bytes(image_content,filename=file.filename,mime_type=file.content_type))
-        return {"message":f"La imagen {file.filename} fue subida exitosamente","id":id}
+        return data["$id"]
     except Exception as e:
         return {"error": str(e)}
