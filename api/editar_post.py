@@ -1,6 +1,6 @@
 from appwriteClient import db
 
-def editar_post(post):
+def editar_post(post,id):
     id = post['$id']
     try:
         data = db.update_document('med-cmc','posts',id,post)

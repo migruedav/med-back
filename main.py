@@ -168,7 +168,7 @@ async def subirArchivo(file: UploadFile = File(...),bucket:str = Query("posts"))
     return await subir_archivo(file,bucket)
 
 @app.post('/editar-post')
-async def editarPost(post: dict):
+async def editarPost(post: dict,id: str = Query("")):
     return editar_post(post)
 
 @app.delete('/borrar-post')
