@@ -27,6 +27,7 @@ from api.all_posts import all_posts
 from api.especialidad_related import especialidad_related
 from api.examenes import examenes
 from api.subir_imagen import subir_imagen
+from api.subir_archivo import subir_archivo
 
 
 class Registro(BaseModel):
@@ -159,3 +160,7 @@ async def getExamenes(offset: int = Query(0)):
 @app.post('/subir-imagen')
 async def subirImagen(file: UploadFile = File(...),bucket:str = Query("posts")):
     return await subir_imagen(file,bucket)
+
+@app.post('/subir-archivo')
+async def subirArchivo(file: UploadFile = File(...),bucket:str = Query("posts")):
+    return await subir_archivo(file,bucket)
