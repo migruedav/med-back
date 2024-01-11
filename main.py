@@ -157,5 +157,5 @@ async def getExamenes(offset: int = Query(0)):
     return examenes(offset)
 
 @app.post('/subir-imagen')
-async def subirImagen(file: UploadFile = File(...)):
-    return await subir_imagen(file)
+async def subirImagen(file: UploadFile = File(...),bucket:str = Query("posts")):
+    return await subir_imagen(file,bucket)
