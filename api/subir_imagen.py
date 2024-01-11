@@ -7,6 +7,7 @@ async def subir_imagen(file):
     try:
         image_content = await file.read()
         data = storage.create_file('ads',id,InputFile.from_bytes(image_content,filename=file.filename,mime_type=file.content_type))
-        return data["$id"]
+        file_id = data["$id"]
+        return {"file_id": file_id}
     except Exception as e:
         return {"error": str(e)}
