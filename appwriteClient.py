@@ -2,6 +2,7 @@ from appwrite.client import Client
 from appwrite.services.storage import Storage
 from appwrite.services.databases import Databases
 from appwrite.services.users import Users
+from appwrite.query import Query
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -18,3 +19,4 @@ key = os.getenv("APPWRITE_KEY")
 storage = Storage(client)
 db = Databases(client)
 users = Users(client)
+q = Query()
