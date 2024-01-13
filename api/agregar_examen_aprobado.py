@@ -3,7 +3,7 @@ import uuid
 
 def agregar_examen_aprobado(examen):
     id=str(uuid.uuid4())
-    id_medico = db.list_documents('med-cmc','medicos',[q.equal('email',examen['email'])])
+    id_medico = db.list_documents('med-cmc','medicos',[q.equal('email',examen['medicos'])])
     id_medico = id_medico['documents'][0]['$id']
     examen['medicos'] = id_medico
     try:
