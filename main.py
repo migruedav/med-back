@@ -52,10 +52,6 @@ class Registro(BaseModel):
     estado: str
 
 
-class CrearUsuario(BaseModel):
-    email: str
-    password: str
-
 
 app = FastAPI()
 
@@ -149,8 +145,8 @@ async def sendRegistro(reg: Registro):
 
 
 @app.post('/crear-usuario')
-async def setCrearUsuario(usr: CrearUsuario):
-    return crearusuario({"email": usr.email, "password": usr.password})
+async def setCrearUsuario(usuario: dict):
+    return crearusuario(usuario)
 
 
 @app.get('/medicos-examenes')
