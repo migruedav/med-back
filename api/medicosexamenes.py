@@ -1,6 +1,6 @@
-from supabaseCl import supabaseClient
+from appwriteClient import db,q
 
 def medicosexamenes():
-    data = supabaseClient.table('web_medicosexamenes').select("fecha_presentacion,email, examen_id(nombre),puntuacion_obtenida").order("fecha_presentacion", desc=True).execute()
-    data = data.data
+    data = db.list_documents('med-cmc','examenes_aprobados',[q.order_desc('fecha'),q.limit(10000)])
+    data = data['documents']
     return data
