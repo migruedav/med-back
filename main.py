@@ -37,9 +37,6 @@ from api.agregar_examen import agregar_examen
 from api.agregar_pyr import agregar_pyr
 from api.borrar_examen import borrar_examen
 from api.editar_examen import editar_examen
-from api.agregar_medico import agregar_medico
-from api.examenes_aprobados import examenes_aprobados
-from api.agregar_examen_aprobado import agregar_examen_aprobado
 
 
 class Registro(BaseModel):
@@ -208,15 +205,3 @@ async def borrarExamen(id: str):
 @app.post('/editar-examen')
 async def editarExamen(examen: dict):
     return editar_examen(examen)
-
-@app.post('/agregar-medico')
-async def agregarMedico(medico: dict):
-    return agregar_medico(medico)
-
-@app.get('/examenes-aprobados')
-async def getExamenesAprobados(mail: str):
-    return examenes_aprobados(mail)
-
-@app.post('/agregar-examen-aprobado')
-async def agregarExamenAprobado(examen: dict):
-    return agregar_examen_aprobado(examen)
