@@ -38,6 +38,7 @@ from api.agregar_pyr import agregar_pyr
 from api.borrar_examen import borrar_examen
 from api.editar_examen import editar_examen
 from api.plataforma import plataforma
+from api.examenes_aprobados import examenes_aprobados
 
 
 class Registro(BaseModel):
@@ -210,3 +211,7 @@ async def editarExamen(examen: dict):
 @app.get('/plataforma')
 async def getPlataforma():
     return plataforma()
+
+@app.get('/examenes-aprobados')
+async def getExamenesAprobados():
+    return examenes_aprobados()
