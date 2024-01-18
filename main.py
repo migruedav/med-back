@@ -213,5 +213,5 @@ async def getPlataforma():
     return plataforma()
 
 @app.get('/examenes-aprobados')
-async def getExamenesAprobados():
-    return examenes_aprobados()
+async def getExamenesAprobados(mail: str = Query("")):
+    return examenes_aprobados(mail)
