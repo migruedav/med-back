@@ -40,7 +40,7 @@ from api.editar_examen import editar_examen
 from api.plataforma import plataforma
 from api.examenes_aprobados import examenes_aprobados
 from api.posts_to_edit import posts_to_edit
-
+from api.exams_to_edit import exams_to_edit
 
 class Registro(BaseModel):
     nombre: str
@@ -220,3 +220,7 @@ async def getExamenesAprobados(mail: str = Query("")):
 @app.get('/posts-to-edit')
 async def getPostsToEdit(offset: int = Query(0),orderedby: str = Query("fecha")):
     return posts_to_edit(offset,orderedby)
+
+@app.get('/exams-to-edit')
+async def getExamsToEdit(offset: int = Query(0),orderedby: str = Query("fecha")):
+    return exams_to_edit(offset,orderedby)
