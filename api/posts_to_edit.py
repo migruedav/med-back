@@ -6,9 +6,9 @@ q = Query()
 def posts_to_edit(offset,orderedby):
 
     if orderedby == "fecha":
-        queries = [q.select(["$id","titulo","fecha","slug","visible"]),q.offset(20*offset),q.limit(20), q.order_desc(orderedby)]
+        queries = [q.offset(20*offset),q.limit(20), q.order_desc(orderedby)]
     else:
-        queries = [q.select(["$id","titulo","fecha","slug","visible"]),q.offset(20*offset),q.limit(20), q.order_asc(orderedby)]
+        queries = [q.offset(20*offset),q.limit(20), q.order_asc(orderedby)]
 
     
     data = db.list_documents('med-cmc','posts',queries=queries)
