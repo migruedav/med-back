@@ -218,5 +218,5 @@ async def getExamenesAprobados(mail: str = Query("")):
     return examenes_aprobados(mail)
 
 @app.get('/posts-to-edit')
-async def getPostsToEdit(offset: int = Query(0)):
+async def getPostsToEdit(offset: int = Query(0),orderedby: str = Query("fecha")):
     return posts_to_edit(offset)
