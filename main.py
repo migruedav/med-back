@@ -39,6 +39,7 @@ from api.borrar_examen import borrar_examen
 from api.editar_examen import editar_examen
 from api.plataforma import plataforma
 from api.examenes_aprobados import examenes_aprobados
+from api.posts_to_edit import posts_to_edit
 
 
 class Registro(BaseModel):
@@ -215,3 +216,7 @@ async def getPlataforma():
 @app.get('/examenes-aprobados')
 async def getExamenesAprobados(mail: str = Query("")):
     return examenes_aprobados(mail)
+
+@app.get('/posts-to-edit')
+async def getPostsToEdit(offset: int = Query(0)):
+    return posts_to_edit(offset)
