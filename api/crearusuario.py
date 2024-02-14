@@ -2,9 +2,6 @@ from supabaseCl import supabaseClient
 
 
 def crearusuario(usuario):
-    print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
-    print("DENTRO DE CREAR USUARIO")
-    print("USUARIO", usuario)
     supabaseClient.auth.sign_up(
         {
             "email": usuario["email"],
