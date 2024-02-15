@@ -42,6 +42,7 @@ from api.examenes_aprobados import examenes_aprobados
 from api.posts_to_edit import posts_to_edit
 from api.exams_to_edit import exams_to_edit
 from api.agregar_medico import agregar_medico
+from api.agregar_examen_aprobado import agregar_examen_aprobado
 
 
 class Registro(BaseModel):
@@ -263,3 +264,8 @@ async def getExamsToEdit(offset: int = Query(0), orderedby: str = Query("fecha")
 @app.post("/agregar-medico")
 async def agregarMedico(medico: dict):
     return agregar_medico(medico)
+
+
+@app.post("/agregar-examen-aprobado")
+async def agregarExamenAprobado(examen: dict):
+    return agregar_examen_aprobado(examen)
