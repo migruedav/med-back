@@ -2,7 +2,7 @@ fastapi==0.104.1
 python-dotenv==1.0.0
 python-slugify==8.0.1
 requests==2.31.0
-supabase==2.2.0
+supabase
 uvicorn==0.24.0.post1
-appwrite==4.1.0
+appwrite
 python-multipart==0.0.6
