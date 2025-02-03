@@ -4,5 +4,5 @@ python-slugify==8.0.1
 requests==2.31.0
 supabase
 uvicorn==0.24.0.post1
-appwrite
+appwrite==4.1.0
 python-multipart==0.0.6
